@@ -2,14 +2,28 @@ server:
   port: 8086
   
 spring:
+  application:
+    name: serie-service
   data:
     mongodb:
       authentication-database: admin
-      username: rootuser
-      password: rootpass
-      database: tp_final
+      username: root
+      password: root
+      database: db_series
       port: 27017
       host: mongodb
+
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: "*"
 
 info:
   app:
