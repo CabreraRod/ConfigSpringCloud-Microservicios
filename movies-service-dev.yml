@@ -1,7 +1,5 @@
 server:
   port: 8082
-  
-
 spring:
   eureka:
     client:
@@ -19,3 +17,8 @@ spring:
     defer-datasource-initialization: true
     hibernate:
       ddl-auto: create-drop
+info:
+  app:
+    name: ${spring.application.name}
+    version: 1.0.0
+    description: Movie Microservice
