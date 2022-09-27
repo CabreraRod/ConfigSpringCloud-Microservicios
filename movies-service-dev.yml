@@ -2,7 +2,7 @@ server:
   port: 8082
 spring:
   application:
-    name: movie-service
+    name: movies-service
   jpa:
     hibernate:
       ddl-auto: update
@@ -11,17 +11,8 @@ spring:
     username: test
     password: mysqlpw
     driver-class-name: com.mysql.cj.jdbc.Driver
-management:
-  info:
-    env:
-      enabled: true
-  endpoints:
-    web:
-      base-path: /actuator
-      exposure:
-        include: "*"
 info:
   app:
     name: ${spring.application.name}
     version: 1.0.0
-    description: Movie Microservice
+    description: Movies Microservice
