@@ -2,27 +2,18 @@ server:
   port: 8084
 
 spring:
-  application:
-    name: catalog-service
-  data:
-    mongodb:
-      authentication-database: admin
-      username: root
-      password: root
-      database: db_catalogs
-      port: 27017
-      host: mongodb
-
-  autoconfigure:
-    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 5000
-        readTimeout: 5000
-        loggerLevel: basic
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;
+    username: sa
+    password: sa
+  sql:
+    init:
+      data-locations: classpath:catalog.sql
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
 
 resilience4j:
   circuitbreaker:
